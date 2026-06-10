@@ -64,7 +64,7 @@ class LottoDisplay extends HTMLElement {
 customElements.define('lotto-display', LottoDisplay);
 
 const generateButton = document.getElementById('generate-button');
-const lottoDisplay = document.querySelector('lotto-display');
+const lottoDisplays = document.querySelectorAll('lotto-display');
 const themeToggle = document.getElementById('theme-toggle');
 const sunIcon = document.getElementById('sun-icon');
 const moonIcon = document.getElementById('moon-icon');
@@ -92,5 +92,7 @@ themeToggle.addEventListener('click', () => {
 });
 
 generateButton.addEventListener('click', () => {
-  lottoDisplay.updateNumbers(lottoDisplay.generateLottoNumbers());
+  lottoDisplays.forEach(display => {
+    display.updateNumbers(display.generateLottoNumbers());
+  });
 });
