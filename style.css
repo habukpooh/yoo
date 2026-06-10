@@ -6,6 +6,7 @@
     --glow-color: rgba(255, 255, 255, 0.1);
     --dot-color: rgba(255, 255, 255, 0.05);
     --h1-shadow: rgba(255, 255, 255, 0.3);
+    --label-color: #4CAF50;
 }
 
 body.light-theme {
@@ -16,6 +17,7 @@ body.light-theme {
     --glow-color: rgba(0, 0, 0, 0.05);
     --dot-color: rgba(0, 0, 0, 0.05);
     --h1-shadow: rgba(0, 0, 0, 0.1);
+    --label-color: #2e7d32;
 }
 
 body {
@@ -25,7 +27,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
     background-image: radial-gradient(circle, var(--dot-color) 1px, transparent 1px);
     background-size: 20px 20px;
@@ -40,10 +42,12 @@ body {
     background-color: var(--card-bg);
     box-shadow: 0 10px 30px var(--shadow-color), 0 0 80px var(--glow-color);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    width: 90%;
+    max-width: 600px;
 }
 
 h1 {
-    font-size: 2.5em;
+    font-size: 2.2em;
     margin-bottom: 30px;
     font-weight: 700;
     text-shadow: 0 0 10px var(--h1-shadow);
@@ -69,16 +73,47 @@ h1 {
     transform: rotate(30deg);
 }
 
+.display-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 35px;
+}
+
+.set-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 20px;
+    border-radius: 12px;
+    background-color: var(--glow-color);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.set-wrapper:hover {
+    transform: translateX(10px);
+    background-color: rgba(76, 175, 80, 0.1);
+}
+
+.set-label {
+    font-size: 1.2em;
+    font-weight: 900;
+    color: var(--label-color);
+    min-width: 40px;
+    text-align: left;
+}
+
 #generate-button {
     background-color: #4CAF50;
     color: white;
-    padding: 15px 30px;
+    padding: 15px 35px;
     border: none;
-    border-radius: 10px;
-    font-size: 1.2em;
+    border-radius: 12px;
+    font-size: 1.1em;
+    font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 0 20px rgba(76, 175, 80, 0.7);
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
     display: inline-flex;
     align-items: center;
     gap: 10px;
@@ -87,49 +122,13 @@ h1 {
 #generate-button:hover {
     background-color: #45a049;
     transform: translateY(-2px);
-    box-shadow: 0 0 30px rgba(76, 175, 80, 1);
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.6);
+}
+
+#generate-button:active {
+    transform: translateY(0);
 }
 
 lotto-display {
-    display: flex;
-    gap: 10px;
-}
-
-lotto-display .lotto-number {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background-color: #333;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.8em;
-    font-weight: bold;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
-    transition: all 0.5s ease;
-}
-adow: 0 0 30px rgba(76, 175, 80, 1);
-}
-
-lotto-display {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 40px;
-}
-
-lotto-display .lotto-number {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background-color: #333;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.8em;
-    font-weight: bold;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
-    transition: all 0.5s ease;
+    flex-grow: 1;
 }
