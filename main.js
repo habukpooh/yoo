@@ -6,22 +6,20 @@ class LottoDisplay extends HTMLElement {
       <style>
         :host {
             display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 40px;
+            gap: 10px;
         }
         .lotto-number {
-            width: 60px;
-            height: 60px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             background-color: #333;
             color: #fff;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 1.8em;
+            font-size: 1.2em;
             font-weight: bold;
-            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5), 0 0 10px rgba(255, 255, 255, 0.1);
             transition: all 0.5s ease;
         }
       </style>
