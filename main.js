@@ -15,7 +15,7 @@ class LottoDisplay extends HTMLElement {
             height: 60px;
             border-radius: 50%;
             background-color: #333;
-            color: #000;
+            color: #fff;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -65,6 +65,31 @@ customElements.define('lotto-display', LottoDisplay);
 
 const generateButton = document.getElementById('generate-button');
 const lottoDisplay = document.querySelector('lotto-display');
+const themeToggle = document.getElementById('theme-toggle');
+const sunIcon = document.getElementById('sun-icon');
+const moonIcon = document.getElementById('moon-icon');
+
+// Initialize theme
+const currentTheme = localStorage.getItem('theme') || 'dark';
+if (currentTheme === 'light') {
+  document.body.classList.add('light-theme');
+  sunIcon.style.display = 'block';
+  moonIcon.style.display = 'none';
+}
+
+themeToggle.addEventListener('click', () => {
+  document.body.classList.toggle('light-theme');
+  const isLight = document.body.classList.contains('light-theme');
+  localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  
+  if (isLight) {
+    sunIcon.style.display = 'block';
+    moonIcon.style.display = 'none';
+  } else {
+    sunIcon.style.display = 'none';
+    moonIcon.style.display = 'block';
+  }
+});
 
 generateButton.addEventListener('click', () => {
   lottoDisplay.updateNumbers(lottoDisplay.generateLottoNumbers());

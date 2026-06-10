@@ -1,29 +1,72 @@
+:root {
+    --bg-color: #1a1a1a;
+    --text-color: #fff;
+    --card-bg: #2a2a2a;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --glow-color: rgba(255, 255, 255, 0.1);
+    --dot-color: rgba(255, 255, 255, 0.05);
+    --h1-shadow: rgba(255, 255, 255, 0.3);
+}
+
+body.light-theme {
+    --bg-color: #f0f2f5;
+    --text-color: #333;
+    --card-bg: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --glow-color: rgba(0, 0, 0, 0.05);
+    --dot-color: rgba(0, 0, 0, 0.05);
+    --h1-shadow: rgba(0, 0, 0, 0.1);
+}
+
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #1a1a1a;
-    color: #fff;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-image: radial-gradient(circle, var(--dot-color) 1px, transparent 1px);
     background-size: 20px 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 #app {
+    position: relative;
     text-align: center;
     padding: 40px;
     border-radius: 20px;
-    background-color: #2a2a2a;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 80px rgba(255, 255, 255, 0.1);
+    background-color: var(--card-bg);
+    box-shadow: 0 10px 30px var(--shadow-color), 0 0 80px var(--glow-color);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 h1 {
     font-size: 2.5em;
     margin-bottom: 30px;
     font-weight: 700;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    text-shadow: 0 0 10px var(--h1-shadow);
+}
+
+#theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+#theme-toggle:hover {
+    transform: rotate(30deg);
 }
 
 #generate-button {
