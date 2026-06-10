@@ -99,8 +99,9 @@ h1 {
     font-size: 1.2em;
     font-weight: 900;
     color: var(--label-color);
-    min-width: 40px;
+    width: 40px;
     text-align: left;
+    flex-shrink: 0;
 }
 
 #generate-button {
